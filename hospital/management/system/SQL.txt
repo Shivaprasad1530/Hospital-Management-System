@@ -1,0 +1,120 @@
+Paste the below code in MYSQL and run. Then Go to connect.java
+
+
+
+
+create database hospital_management_system;
+use hospital_management_system;
+
+create table login(
+ username varchar(20) unique not null ,
+ password varchar(20) not null
+);
+ -- You can create your own username and password here.
+insert into login values
+("Username" , "Password"),
+("Harry" , "1234");
+-- select * from login;
+
+create table patient_info  (
+  ID varchar(10),
+  NAME varchar(25) not null,
+  Gender varchar(10) ,
+  Age varchar(3) not null,
+  Disease varchar(20) not null,
+  Blood varchar(5),
+  Room varchar(20) ,
+  Date varchar(100),
+  Deposit varchar(25)
+);
+
+
+create table room (
+ Room_no int unique,
+ Availability varchar(20),
+ Price int ,
+ Room_Type varchar(100)
+);
+
+insert into room values
+(01, 'Available', 200, 'General BED 01' ),
+(02, 'Available', 200, 'General BED 02' ),
+(03, 'Available', 200, 'General BED 03' ),
+(04, 'Available', 200, 'General BED 04' ),
+(05, 'Available', 200, 'General BED 05' ),
+(06, 'Available', 200, 'General BED 06' ),
+(101, 'Available', 500, 'Private room' ),
+(102, 'Available', 500, 'Private room' ),
+(103, 'Available', 500, 'Private room' ),
+(104, 'Available', 500, 'Private room' ),
+(105, 'Available', 500, 'Private room' ),
+(201, 'Available', 800, 'ICU Bed 1' ),
+(202, 'Available', 800, 'ICU Bed 2' ),
+(203, 'Available', 800, 'ICU Bed 3' ),
+(204, 'Available', 800, 'ICU Bed 4' ),
+(205, 'Available', 800, 'ICU Bed 5' );
+
+create table department(
+dept varchar(50) not null,
+phone_no varchar(10) not null
+);
+insert into department values
+("Cardiology" , "9451128531"),
+("Neurology" , "9457156521"),
+("ENT" , "9451124681"),
+("Gynaecology" , "9451127458"),
+("Dermatology", "9102837456"),
+("Orthopedics", "2847591036"),
+("Pediatrics", "6381942057"),
+("Oncology", "7592038146"),
+("Psychiatry", "4928175360"),
+("Radiology", "8203649157"),
+("Endocrinology", "1357204986"),
+("Gastroenterology", "6041829357"),
+("Pharmacy" , "9451124753");
+
+create table staff(
+ID varchar(5) unique,
+Name varchar(25) not null,
+Age varchar(3) not null,
+Designation varchar(15) not null,
+Department varchar(25),
+Phone varchar(10) not null,
+Adhaar varchar(12) not null
+);
+insert into staff values
+(1, "Dr. Arjun Mehta", 45, "Doctor", "Neurology", "9123456780", "123456789012"),
+(2, "Nurse Kavya Rao", 29, "Nurse", "Neurology", "9123456781", "123456789013"),
+(3, "Dr. Rohan Sharma", 50, "Doctor", "Cardiology", "9123456782", "123456789014"),
+(4, "Nurse Ananya Das", 31, "Nurse", "Cardiology", "9123456783", "123456789015"),
+(5, "Dr. Priya Kulkarni", 42, "Doctor", "Dermatology", "9123456784", "123456789016"),
+(6, "Nurse Sneha Iyer", 27, "Nurse", "Dermatology", "9123456785", "123456789017"),
+(7, "Dr. Vikram Reddy", 46, "Doctor", "Orthopedics", "9123456786", "123456789018"),
+(8, "Nurse Meera Nair", 30, "Nurse", "Orthopedics", "9123456787", "123456789019"),
+(9, "Dr. Aishwarya Patil", 39, "Doctor", "Pediatrics", "9123456788", "123456789020"),
+(10, "Nurse Devika Menon", 26, "Nurse", "Pediatrics", "9123456789", "123456789021"),
+(11, "Dr. Karan Kapoor", 44, "Doctor", "Oncology", "9123456790", "123456789022"),
+(12, "Nurse Ritu Singh", 28, "Nurse", "Oncology", "9123456791", "123456789023"),
+(13, "Dr. Sameer Joshi", 48, "Doctor", "Psychiatry", "9123456792", "123456789024"),
+(14, "Nurse Neha Pillai", 32, "Nurse", "Psychiatry", "9123456793", "123456789025"),
+(15, "Dr. Shruti Deshmukh", 41, "Doctor", "Radiology", "9123456794", "123456789026"),
+(16, "Nurse Tanya George", 29, "Nurse", "Radiology", "9123456795", "123456789027"),
+(17, "Dr. Manish Agarwal", 47, "Doctor", "Endocrinology", "9123456796", "123456789028"),
+(18, "Nurse Pooja Verma", 30, "Nurse", "Endocrinology", "9123456797", "123456789029"),
+(19, "Dr. Deepak Choudhary", 43, "Doctor", "Gastroenterology", "9123456798", "123456789030"),
+(20, "Nurse Shalini Gupta", 27, "Nurse", "Gastroenterology", "9123456799", "123456789031");
+
+create table ambulance(
+Vno varchar(4) unique,
+Name varchar(25) not null,
+Type varchar(5) not null,
+phone varchar(10) unique
+);
+
+insert into ambulance values
+("1235","Ravi","BLS","9874563210"),
+("5847","Chandu","ALS","9584675326");
+
+select * from patient_info;
+select * from room;
+drop table staff;
